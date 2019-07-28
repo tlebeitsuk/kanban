@@ -38,13 +38,15 @@ module.exports = function (ctx) {
         'QBtn',
         'QIcon',
         'QList',
+        'QSeparator',
         'QItem',
         'QItemSection',
         'QItemLabel',
         'QCard',
         'QCardSection',
         'QInput',
-        'QForm'
+        'QForm',
+        'QMenu'
       ],
 
       directives: ['Ripple'],

@@ -5,10 +5,10 @@
         <div class="col">
           <div
             @click="editTitle = true"
-            class="text-subtitle1 text-weight-medium"
+            class="text-subtitle1 text-weight-medium text-grey-10"
             v-if="!editTitle"
           >{{ data.title }}</div>
-          <!-- Edit title -->
+          <!-- Edit list title -->
           <q-form @reset="cancelNewTitle" @submit="saveTitle" v-else>
             <div class="row items-center no-wrap">
               <div class="col q-mr-sm">
@@ -21,16 +21,32 @@
             </div>
           </q-form>
         </div>
+        <!-- List actions -->
         <div class="col-auto" v-if="!editTitle">
-          <q-btn @click="deleteList(data)" color="primary" dense flat icon="delete_outline" />
-          <q-btn @click="newCard(data)" color="primary" dense flat icon="playlist_add" />
+          <q-btn color="grey-7" dense flat icon="more_horiz">
+            <q-menu auto-close>
+              <q-list>
+                <q-item clickable>
+                  <q-item-section @click="newCard(data)">New card</q-item-section>
+                </q-item>
+                <q-separator />
+                <q-item clickable>
+                  <q-item-section @click="deleteList(data)">Remove list</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
         </div>
       </div>
     </q-card-section>
-    <q-card-section v-if="data.cards.length > 0">
+    <!-- Cards -->
+    <q-card-section>
       <draggable group="cards">
         <Card :data="card" :key="card.id" v-for="card in data.cards" />
       </draggable>
+      <span class="flex justify-center">
+        <q-btn @click="newCard(data)" color="grey-7" dense flat icon="add" />
+      </span>
     </q-card-section>
   </q-card>
 </template>
