@@ -11,7 +11,7 @@
         <q-form @reset="cancelNewList" @submit="newList" v-else>
           <div class="row items-center no-wrap">
             <div class="col q-mr-sm">
-              <q-input autofocus dense outlined v-model="newTitle" />
+              <q-input autofocus dense outlined v-model="newListTitle" />
             </div>
             <div class="col-auto">
               <q-btn color="primary" dense flat icon="close" type="reset" />
@@ -29,7 +29,7 @@ import draggable from 'vuedraggable'
 import List from './List.vue'
 
 export default {
-  name: 'app',
+  name: 'Board',
   components: {
     List,
     draggable
@@ -55,7 +55,7 @@ export default {
   data () {
     return {
       showNew: false,
-      newTitle: '',
+      newListTitle: '',
       lists: [
         {
           id: 0,

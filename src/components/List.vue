@@ -44,8 +44,8 @@
       <draggable group="cards">
         <Card :data="card" :key="card.id" v-for="card in data.cards" />
       </draggable>
-      <span class="flex justify-center">
-        <q-btn @click="newCard(data)" color="grey-7" dense flat icon="add" />
+      <span class="flex justify-center q-mt-md">
+        <q-btn @click="newCard(data)" color="primary" dense flat icon="add" />
       </span>
     </q-card-section>
   </q-card>
